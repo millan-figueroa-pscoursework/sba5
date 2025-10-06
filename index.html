@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css" />
-    <title>Millan's Blog</title>
+    <title>Millan's Blog v1</title>
 </head>
 
 <body>
 
 <!-- Header -->
     <header class="site-header">
-            <h1 class="site-title">Millan's Blog</h1>
+            <h1 class="site-title">Millan's Blog v1</h1>
     </header>
 
     <main class="main-container">
@@ -27,7 +27,7 @@
                 <div class="field">
                     <label for="post-title">Title</label>
                     <input id="post-title" name="title" type="text" placeholder="Give it a short title…" />
-                    <span id="title-error"></span>
+                    <span id="title-error" class="error"></span>
                 </div>
 
 <!-- Compose Field -->
@@ -36,7 +36,7 @@
                     rows="14"
                     placeholder="Write your thoughts…">
                     </textarea>
-                    <span id="compose-error"></span>
+                    <span id="compose-error" class="error"></span>
                 </div>
 
 <!-- Post Actions (save/ reset) -->
