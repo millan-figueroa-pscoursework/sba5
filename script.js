@@ -51,3 +51,29 @@ function renderPosts() {
     el.dataset.pos = String(index + 1);
   });
 }
+
+// Creates post and uses unshift instead of pop to put it in the beginning of array
+function createPost(title, body) {
+  posts.unshift({ id: uID(), title, body });
+  save();
+  renderPosts();
+}
+
+// Saves post to local storage
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
+}
+
+// Adds eventlistener that prevents default and runs validation
+form.addEventListener("submit", function (e) {
+  e.preventDefault(); // prevents page reload
+
+  if (!validateForm()) return;
+
+  const title = titleInput.value;
+  const body = bodyInput.value;
+
+  form.reset();
+  clearValidation();
+  exitEditMode();
+});
