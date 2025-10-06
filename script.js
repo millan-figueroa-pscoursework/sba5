@@ -23,5 +23,31 @@ function uID() {
   return `${month}/${day}/${year} Time:${time}`;
 }
 
-console.log(uID());
-console.log(uID());
+// console.log(uID());
+// console.log(uID());
+
+// Uses li class in html as a template then removes it
+const templateLi = document.querySelector(".post");
+templateLi.remove();
+
+// Renders posts using document fragment
+function renderPosts() {
+  postsList.innerHTML = "";
+
+  const frag = document.createDocumentFragment();
+
+  posts.forEach((p) => {
+    const li = templateLi.cloneNode(true);
+    li.dataset.id = p.id;
+    li.querySelector(".post-title").textContent = p.title;
+    li.querySelector(".post-content").textContent = p.body;
+    frag.appendChild(li);
+  });
+
+  postsList.appendChild(frag);
+
+  const renderedItems = postsList.querySelectorAll(".post");
+  renderedItems.forEach((el, index) => {
+    el.dataset.pos = String(index + 1);
+  });
+}

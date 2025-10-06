@@ -52,9 +52,18 @@ body {
 
 .field {
     padding: 4px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 4px;
     border-radius: 5px;
 }
 
+textarea {
+    padding: 4px;
+    border-radius: 5px;
+}
 .error {
     color: red;
     font-weight: 300;
