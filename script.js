@@ -15,10 +15,12 @@ let posts = [];
 // Creates unique id for post using date
 function uID() {
   const d = new Date();
-  const month = d.getMonth() + 1; // getMonth() is 0–11
+  const month = d.getMonth() + 1;
   const day = d.getDate();
   const year = d.getFullYear();
-  return `${month}/${day}/${year}`;
+  const time = d.getHours() + "." + d.getMinutes() + "." + d.getSeconds();
+
+  return `${month}/${day}/${year} Time:${time}`;
 }
 
 console.log(uID());
