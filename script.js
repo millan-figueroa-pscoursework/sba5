@@ -63,7 +63,26 @@ function createPost(title, body) {
 function save() {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(posts));
 }
+// Add functionality that performs form validation on input fields and when submitted
+function validateForm() {
+  if (titleInput.validity.valueMissing) {
+    titleInput.setCustomValidity("Please enter a title.");
+  }
+  if (bodyInput.validity.valueMissing) {
+    bodyInput.setCustomValidity("Please write some content.");
+  }
 
+  const ok = form.checkValidity();
+
+  if (!ok) {
+    if (!titleInput.validity.valid)
+      titleError.textContent = titleInput.validationMessage;
+    if (!bodyInput.validity.valid)
+      bodyError.textContent = bodyInput.validationMessage;
+    (!titleInput.validity.valid ? titleInput : bodyInput).reportValidity();
+  }
+  return ok;
+}
 // Adds eventlistener that prevents default and runs validation
 form.addEventListener("submit", function (e) {
   e.preventDefault(); // prevents page reload
@@ -72,8 +91,6 @@ form.addEventListener("submit", function (e) {
 
   const title = titleInput.value;
   const body = bodyInput.value;
-
+  console.log(posts);
   form.reset();
-  clearValidation();
-  exitEditMode();
 });

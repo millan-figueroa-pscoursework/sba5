@@ -14,7 +14,7 @@
 
 ### Create New Posts:
 
-[ ] A form with fields for a post title and post content (e.g., using `<input type="text">` for title and `<textarea>` for content).<br>
+[X] A form with fields for a post title and post content (e.g., using `<input type="text">` for title and `<textarea>` for content).<br>
 [ ] Upon submission, the new post should be added to a list of posts displayed on the page.<br>
 [ ] The form should be validated: both title and content are required.<br>
 [ ] Display custom, user-friendly error messages if validation fails.<br>
