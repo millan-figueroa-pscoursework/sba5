@@ -7,7 +7,7 @@ const bodyError = document.getElementById("compose-error");
 const postsList = document.getElementById("posts-list");
 const composeTitle = document.getElementById("compose-title");
 const saveBtn = document.getElementById("btn-save-post");
-
+form.setAttribute("novalidate", "");
 // Put posts in array, save to localStorage
 const STORAGE_KEY = "millan_blog_posts_v1";
 let posts = [];
@@ -65,23 +65,24 @@ function save() {
 }
 // Add functionality that performs form validation on input fields and when submitted
 function validateForm() {
-  if (titleInput.validity.valueMissing) {
-    titleInput.setCustomValidity("Please enter a title.");
-  }
-  if (bodyInput.validity.valueMissing) {
-    bodyInput.setCustomValidity("Please write some content.");
-  }
+  titleInput.setCustomValidity("");
+  bodyInput.setCustomValidity("");
+  titleError.textContent = "";
+  bodyError.textContent = "";
 
-  const ok = form.checkValidity();
+  const title = titleInput.value;
+  const body = bodyInput.value;
 
-  if (!ok) {
-    if (!titleInput.validity.valid)
-      titleError.textContent = titleInput.validationMessage;
-    if (!bodyInput.validity.valid)
-      bodyError.textContent = bodyInput.validationMessage;
-    (!titleInput.validity.valid ? titleInput : bodyInput).reportValidity();
-  }
-  return ok;
+  let valid = true;
+
+  if (!title) titleInput.setCustomValidity("You have to enter a title!");
+  if (!body) bodyInput.setCustomValidity("Tell me what happened today!");
+
+  titleError.textContent = titleInput.validationMessage;
+  bodyError.textContent = bodyInput.validationMessage;
+
+  return valid;
+  // const ok = form.checkValidity();
 }
 // Adds eventlistener that prevents default and runs validation
 form.addEventListener("submit", function (e) {
@@ -91,6 +92,9 @@ form.addEventListener("submit", function (e) {
 
   const title = titleInput.value;
   const body = bodyInput.value;
+  createPost(title, body);
   console.log(posts);
   form.reset();
 });
+
+document.addEventListener("DOMContentLoaded", renderPosts);

@@ -24,7 +24,7 @@ body {
     flex-direction: column;
     justify-items: center;
     align-items: center;
-    padding: 10px;
+    padding: 10px 30px;
     margin-top: 10px;
 }
 
@@ -44,16 +44,27 @@ body {
     padding-top: 10px;
 }
 
-.posts-list {
+/* .posts-list {
     margin-top: 30px;
     padding-top: 30px;
+} */
+
+h3.post-title {
+    padding: 10px 0;
+}
+.post {
+    padding: 30px;
 }
 
+.post-actions {
+    padding: 10px;
+}
 
 .field {
     padding: 4px;
     border-radius: 10px;
 }
+
 
 input {
     padding: 4px;
@@ -64,9 +75,11 @@ textarea {
     padding: 4px;
     border-radius: 5px;
 }
+
 .error {
     color: red;
     font-weight: 300;
+    background-color: white;
 }
 
 button {

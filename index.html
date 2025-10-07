@@ -26,16 +26,13 @@
             <form id="post-form" class="post-form">
                 <div class="field">
                     <label for="post-title">Title</label>
-                    <input id="post-title" name="title" type="text" placeholder="Give it a short title…" />
+                    <input id="post-title" name="title" type="text" placeholder="Dearest diary…" required />
                     <span id="title-error" class="error"></span>
                 </div>
 
 <!-- Compose Field -->
                 <div class="field">
-                    <textarea id="post-body" name="body" cols="50" 
-                    rows="14"
-                    placeholder="Write your thoughts…">
-                    </textarea>
+                    <textarea id="post-body" placeholder="xoxo gossipgirl…" name="body" cols="50" rows="14"></textarea>
                     <span id="compose-error" class="error"></span>
                 </div>
 
@@ -43,7 +40,6 @@
                 <div class="actions">
                     <button id="btn-save-post" class="btn-save-post" type="submit">Save
                     </button>
-                    <button id="btn-reset-form" class="btn-save-post" type="reset">Reset</button>
                 </div>
             </form>
         </section>
@@ -51,9 +47,9 @@
         <h2>Latest Entries</h2>
         <section aria-labelledby="entries" class="entries">
             <ul id="posts-list" class="posts-list">
-                
                 <li class="post">
                     <h3 class="post-title"></h3>
+                    <span class="post-date"></span>
                     <p class="post-content"></p>
                     <div class="post-actions">
                         <button class="btn-post-edit">Edit</button>
